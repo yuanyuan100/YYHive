@@ -41,7 +41,11 @@
     }
     
     if ([self.mainViewObject.microApplication respondsToSelector:@selector(application:didFinishLaunchingWithOptions:)]) {
-        return [self.mainViewObject.microApplication application:application didFinishLaunchingWithOptions:launchOptions];
+        BOOL stop = [self.mainViewObject.microApplication application:application didFinishLaunchingWithOptions:launchOptions];
+        
+        if (stop == NO) {
+            return NO;
+        }
     }
     
     for (YYHiveMicroConfiguration *c in self.allMicroViewObjects) {

@@ -10,26 +10,33 @@
 @implementation YYHiveMicroConfiguration
 
 - (id<YYMicroApplicationDelegate>)microApplication {
-    if (self.ApplicationClass.length == 0) {
-        return nil;
-    }
-    
-    if (![self.MicroAppMode isEqualToString:YYHiveMicroAppRunViewMode]) {
-        return nil;
-    }
-    return [[NSClassFromString(self.ApplicationClass) alloc] init];
+       if (self.ApplicationClass.length == 0) {
+         return nil;
+     }
+     
+     if (![self.MicroAppMode isEqualToString:YYHiveMicroAppRunViewMode]) {
+         return nil;
+     }
+     
+     if (_microApplication == nil) {
+         _microApplication = [[NSClassFromString(self.ApplicationClass) alloc] init];
+     }
+     return _microApplication;
 }
 
 - (id<YYMicroServiceDelegate>)microSerivce {
     if (self.ApplicationClass.length == 0) {
          return nil;
-     }
+    }
     
     if (![self.MicroAppMode isEqualToString:YYHiveMicroAppRunServiceMode]) {
         return nil;
     }
     
-    return [[NSClassFromString(self.ApplicationClass) alloc] init];
+    if (_microSerivce == nil) {
+       _microSerivce = [[NSClassFromString(self.ApplicationClass) alloc] init];
+    }
+    return _microSerivce;
 }
 
 @end
