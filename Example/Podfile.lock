@@ -1,0 +1,27 @@
+PODS:
+  - Expecta (1.0.6)
+  - Specta (1.0.7)
+  - YYHive (0.1.0)
+
+DEPENDENCIES:
+  - Expecta
+  - Specta
+  - YYHive (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Expecta
+    - Specta
+
+EXTERNAL SOURCES:
+  YYHive:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
+  Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
+  YYHive: 4cb9b282729ea1d6187bad76070fc240793cb375
+
+PODFILE CHECKSUM: fa88462f46845c5227d1cf514f4ef4ac6f581845
+
+COCOAPODS: 1.8.4
