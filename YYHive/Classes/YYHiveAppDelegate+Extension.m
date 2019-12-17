@@ -23,6 +23,14 @@
         c.InitializationDependencyLibrary = dict[@"InitializationDependencyLibrary"];
         c.IsMainMicroApplication = [dict[@"IsMainMicroApplication"] boolValue];
         c.MustBeInitialized = [dict[@"MustBeInitialized"] boolValue];
+        
+        
+        if ([c.MicroAppMode isEqualToString:YYHiveMicroAppRunViewMode]) {
+            c.microApplication = [[NSClassFromString(c.ApplicationClass) alloc] init];
+        } else if ([c.MicroAppMode isEqualToString:YYHiveMicroAppRunServiceMode]) {
+            c.microSerivce = [[NSClassFromString(c.ApplicationClass) alloc] init];
+        }
+        
         [allMicroConfiguration addObject:c];
     }
     return allMicroConfiguration.copy;
